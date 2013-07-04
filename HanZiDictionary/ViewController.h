@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@property (retain,nonatomic) UILabel *topLabel;
+@property (retain,nonatomic) UIButton *backButton,*mainButton;//返回按钮和主页按钮
 
-@interface ViewController : UIViewController
+@property (assign,nonatomic) int num;
+@property (retain,nonatomic) NSMutableArray *weiZiArrray;//表格数据，提供内容
+@property (retain,nonatomic) UITableView *tableView;//表格对象，提供外观
+
+@property (retain,nonatomic) NSArray*ary;
+@property (retain,nonatomic) NSString *urlStr;//用来接上个界面的网址
+@property (retain,nonatomic) UIActivityIndicatorView *act;
+-(void)getData:(int)num;
 
 @end
