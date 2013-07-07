@@ -61,7 +61,8 @@
     
     
     //创建单元格
-    tabView=[[[UITableView alloc]initWithFrame:CGRectMake(0, 44, 320, 480)]autorelease];
+    //这里480-44-20可以让区头的索引完全显示
+    tabView=[[[UITableView alloc]initWithFrame:CGRectMake(0, 44, 320, 480-44-20)]autorelease];
     [self.view addSubview:tabView];
     tabView.dataSource=self;
     tabView.delegate=self;
@@ -85,6 +86,7 @@
         [tabArray addObject:tabelCellArray];
         //NSLog(@"*******%@",tabArray);
     }
+    
     
     //显示索引背景
 //    self.tabView.sectionIndexTrackingBackgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"Key-frame3@2x"]];
@@ -122,9 +124,31 @@
         //NSLog(@"---%@",sectionArrray);
         s=[sectionArray objectAtIndex:indexPath.row];//每行所对应的值
         //NSLog(@"+++%@",s);        
-        cell.textLabel.text=s.pinyin;//单元格内容为索取到的各个字母对应的内容        
-    }    
-    return cell;    
+        cell.textLabel.text=s.pinyin;//单元格内容为索取到的各个字母对应的内容
+       
+    }
+    self.zilab=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    self.zilab.backgroundColor=[UIColor lightGrayColor];
+    self.zilab.text=[self.sections objectAtIndex:indexPath.section];
+    [self.zilab setTextColor:[UIColor whiteColor]];
+    self.zilab.backgroundColor=[UIColor clearColor];
+    self.zilab.textAlignment=NSTextAlignmentCenter;
+    [self.zilab setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
+    self.vie=[[UIView alloc]initWithFrame:CGRectMake(320/2, (480-20-44)/2, 40, 40)];
+    self.vie.layer.cornerRadius=21;
+    [self.vie setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"round.png"]]];
+    
+    [self.view addSubview:self.vie];
+    [self.vie addSubview:self.zilab];
+    [UIView animateWithDuration:0.2 delay:1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.vie.alpha=0;
+    } completion:^(BOOL finished) {
+        self.zilab.alpha=1;
+    }];
+
+    
+    
+    return cell;
 }
 #pragma mark  每个分区的行高
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

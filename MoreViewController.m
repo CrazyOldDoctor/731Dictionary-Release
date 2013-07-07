@@ -4,6 +4,7 @@
 #import "YiJianViewController.h"
 #import "MyCollectViewController.h"
 #import <ShareSDK/ShareSDK.h>
+#import "UMFeedback.h"
 @interface MoreViewController ()
 
 @end
@@ -93,8 +94,7 @@
 }
 -(void)yiJian:(id)sender{
     NSLog(@"意见反馈");
-    YiJianViewController *yiJian=[[[YiJianViewController alloc]init]autorelease];
-    [self.navigationController pushViewController:yiJian animated:YES];    
+    [UMFeedback showFeedback:self withAppkey:@"4eeb0c7b527015643b000003"];
 }
 -(void)share:(id)sender{
     NSLog(@"分享");
@@ -102,7 +102,7 @@
     NSString *imagePath =  [[NSBundle mainBundle] pathForResource:@"ShareSDK"
                                                            ofType:@"jpg"];
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
+    id<ISSContent> publishContent = [ShareSDK content:@"有生僻字不懂，立马下载《汉语字典》，体验中华民族五千年的造字精髓。 http://www.zhizhang.com/more/download.php?appid=19"
                                        defaultContent:@"默认分享内容，没内容时显示"
                                                 image:[ShareSDK imageWithPath:imagePath]
                                                 title:@"汉字字典"

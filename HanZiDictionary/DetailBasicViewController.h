@@ -24,4 +24,7 @@
 //创建构造方法
 -(id)setAA:(CGRect)FCG andFimg:(NSString *)img andFLabel:(CGRect) FLabel andText:(NSString *)txt andbtnCG:(CGRect)btCG andBtn:(SEL)btn;
 @property (retain,nonatomic) NSString *urlSt;
+
+@property (retain,nonatomic) UIActivityIndicatorView *act;
+@property (retain,nonatomic) NSTimer *time;
 @end

@@ -38,17 +38,14 @@
     [self getData:self.num];//调用解析的方法    
     
     self.tableView=[[[UITableView alloc]init]autorelease];
-    self.tableView=[[[UITableView alloc]initWithFrame:CGRectMake(0, 44, 320, 480-44)]autorelease];
+    self.tableView=[[[UITableView alloc]initWithFrame:CGRectMake(0, 44, 320, 480-44-70)]autorelease];
     self.tableView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing"]];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     //[self.tableView setSeparatorColor:[UIColor lightGrayColor]];//设置单元格分隔线颜色
-    [self.view addSubview:self.tableView];    
-    
-    self.act=[[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(45, 0, 320, 50)]autorelease];
-    [self.act setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-    self.act.color=[UIColor blackColor];
-    //self.act.hidesWhenStopped=NO;
+    [self.view addSubview:self.tableView];
+  
+
     //顶部===================================================================================================
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing"]];
     self.topLabel=[[[UILabel alloc]initWithFrame:CGRectMake(0, -0.5, 320, 44)]autorelease];
@@ -90,7 +87,7 @@
     [btnDown setTitle:@"加载更多...      " forState:UIControlStateNormal];
     [btnDown setTitleColor:[UIColor colorWithRed:123/255.0 green:44/255.0 blue:18/255.0 alpha:1]forState:UIControlStateNormal];
     [self.view addSubview:btnDown];    
-    [self.view addSubview:self.act];   
+    //[self.view addSubview:self.act];
 }
 //-(void)getData:(int)num{//JSON解析方法
 //    NSString *urlStr=[NSString stringWithFormat:@""];
@@ -160,9 +157,23 @@
 //-------------------------单元格单击事件处理函数(推送到具体显示页面)--------------------------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {        
-    DetailBasicViewController *detailBasic=[[[DetailBasicViewController alloc]init]autorelease];
-    [self.navigationController pushViewController:detailBasic animated:YES];
     
+    //**************************
+   
+    
+    
+       DetailBasicViewController *detailBasic=[[[DetailBasicViewController alloc]init]autorelease];
+        [self.navigationController pushViewController:detailBasic animated:YES];
+    //进度轮 
+    //创建活动指示器
+    //在加载详细页面时开始，加载完毕后结束
+    detailBasic.act=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    detailBasic.act.center=self.view.center;
+    detailBasic.act.color=[UIColor redColor];
+    [self.view addSubview:detailBasic.act];
+    [detailBasic.act startAnimating];//开始
+    
+    //***************************
     detailBasic.topLabel.text=[[self.ary objectAtIndex:indexPath.row]objectForKey:@"simp"];//顶端文字
     detailBasic.titleLabel.text=[[self.ary objectAtIndex:indexPath.row]objectForKey:@"simp"];//汉字
     detailBasic.pinYinLab.text=[NSString stringWithFormat:@"拼音：%@",[[[self.ary objectAtIndex:indexPath.row]objectForKey:@"yin"]objectForKey:@"pinyin"]];//拼音
@@ -172,15 +183,15 @@
     detailBasic.buShouLab.text=[NSString stringWithFormat:@"部首：%@",[[self.ary objectAtIndex:indexPath.row]objectForKey:@"bushou"]];//部首
     detailBasic.buShouBiHuaLab.text=[NSString stringWithFormat:@"部首笔画：%@",[[self.ary objectAtIndex:indexPath.row]objectForKey:@"bsnum"]];//部首笔画
     detailBasic.biHuaLab.text=[NSString stringWithFormat:@"笔画：%@",[[self.ary objectAtIndex:indexPath.row]objectForKey:@"num"]];//笔画
-    detailBasic.biShunLab.text=[NSString stringWithFormat:@"笔顺：%@",[[self.ary objectAtIndex:indexPath.row]objectForKey:@"seq"]];//笔顺     
-    
+    detailBasic.biShunLab.text=[NSString stringWithFormat:@"笔顺：%@",[[self.ary objectAtIndex:indexPath.row]objectForKey:@"seq"]];//笔顺
+
     NSString *nextTitle = detailBasic.titleLabel.text;        
     NSURL *jsonUrl=[NSURL URLWithString:[NSString stringWithFormat:@"http://www.chazidian.com/service/word/%@",nextTitle]];
     NSLog(@"jsonUrl==%@",jsonUrl);
     NSError *error=nil;
     NSString *jsonStr=[NSString stringWithContentsOfURL:jsonUrl encoding:NSUTF8StringEncoding error:&error];
     NSDictionary *jsonDic=[jsonStr JSONValue];//NSLog(@"内容＝＝＝＝%@",jsonDic);
-    NSDictionary *dataDic=[jsonDic objectForKey:@"data"];//NSLog(@"5555555data=====%@",dataDic);
+    NSDictionary *dataDic=[jsonDic objectForKey:@"data"];
     
     NSString *jiBenXinXiStr=[dataDic objectForKey:@"base"];
     NSLog(@"汉字＝＝＝＝＝＝＝＝＝＝%@",jiBenXinXiStr);    
@@ -204,6 +215,7 @@
     [ZuiJinSouSuo updateTime:[NSString stringWithFormat:@"%@",dateTime] andZiTi:detailBasic.titleLabel.text];
 
 }
+
 #pragma mark - 单元格内容设置
 //------------------------------------定义每个单元格内的具体内容-----------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -220,6 +232,7 @@
     cell.biHuaLab.text=[NSString stringWithFormat:@"笔画：%@",[[self.ary objectAtIndex:indexPath.row]objectForKey:@"num"]];         
     return  cell;  
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];    

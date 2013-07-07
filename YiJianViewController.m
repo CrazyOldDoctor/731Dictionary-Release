@@ -30,7 +30,7 @@
 	//顶部===================================================================================================
 	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing"]];
     self.topLabel=[[[UILabel alloc]initWithFrame:CGRectMake(0, -0.5, 320, 44)]autorelease];
-    self.topLabel.text=@"汉字字典";
+    self.topLabel.text=@"意见反馈";
     self.topLabel.textAlignment=NSTextAlignmentCenter;
     self.topLabel.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"calligrapher.png"]];
     self.topLabel.userInteractionEnabled=YES;

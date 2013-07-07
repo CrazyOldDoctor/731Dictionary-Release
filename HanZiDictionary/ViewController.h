@@ -19,6 +19,8 @@
 @property (retain,nonatomic) NSArray*ary;
 @property (retain,nonatomic) NSString *urlStr;//用来接上个界面的网址
 @property (retain,nonatomic) UIActivityIndicatorView *act;
--(void)getData:(int)num;
 
+@property (retain,nonatomic) NSTimer *time;
+@property (retain,nonatomic) NSString *titleOne;
+-(void)getData:(int)num;
 @end

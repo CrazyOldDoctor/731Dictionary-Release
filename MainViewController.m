@@ -409,7 +409,7 @@ int flag=0;
     h2*=40;
     int h3=h1+h2;
     [spell.tabView reloadData];
-    [spell.tabView scrollRectToVisible:CGRectMake(0, h3+460-20+40, 320, 1) animated:NO]; }
+    [spell.tabView scrollRectToVisible:CGRectMake(0, h3+480-20-44, 320, 1) animated:NO]; }
 -(void)bsChaXun:(UIButton *)sender{    
     NSLog(@"部首查询按钮");   
     BuShouRetrievalViewController *buShou=[[[BuShouRetrievalViewController alloc]init]autorelease];
@@ -422,7 +422,7 @@ int flag=0;
     h2*=40;
     int h3=h1+h2;
     [buShou.tabView reloadData];
-    [buShou.tabView scrollRectToVisible:CGRectMake(0, h3+460-20+40, 320, 1) animated:NO];  }
+    [buShou.tabView scrollRectToVisible:CGRectMake(0, h3+480-20-44, 320, 1) animated:NO];  }
 -(void)py:(id)sender{    
     self.pyziButton.selected=YES;
     self.bsziButton.selected=NO;
@@ -445,6 +445,7 @@ int flag=0;
         bsBtn.hidden=NO;    }    
     self.pyzmLabel.text=@"按照部首笔画检索:";    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];    

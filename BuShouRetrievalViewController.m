@@ -64,7 +64,8 @@
     [topLabel addSubview:leftLine];
     
     //创建单元格
-    tabView=[[[UITableView alloc]initWithFrame:CGRectMake(0, 44, 320, 480)]autorelease];
+    //这里480-44-20可以让区头的索引完全显示
+    tabView=[[[UITableView alloc]initWithFrame:CGRectMake(0, 44, 320, 480-44-20)]autorelease];
     [self.view addSubview:tabView];
     tabView.dataSource=self;
     tabView.delegate=self;
@@ -118,6 +119,31 @@
     //[self.tabArray objectAtIndex:indexPath.section]取出对应的分区
     //objectAtIndex:indexPath.row 再取出对应每个分区中的对应行
     cell.textLabel.text=s.title;
+    
+    
+    self.zilab=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    self.zilab.backgroundColor=[UIColor lightGrayColor];
+    self.zilab.text=[self.sections objectAtIndex:indexPath.section];
+    [self.zilab setTextColor:[UIColor whiteColor]];
+    self.zilab.backgroundColor=[UIColor clearColor];
+    self.zilab.textAlignment=NSTextAlignmentCenter;
+    [self.zilab setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
+    self.vie=[[UIView alloc]initWithFrame:CGRectMake(320/2, (480-20-44)/2, 40, 40)];
+    self.vie.layer.cornerRadius=21;
+    [self.vie setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"round.png"]]];
+    
+    [self.view addSubview:self.vie];
+    [self.vie addSubview:self.zilab];
+    [UIView animateWithDuration:0.2 delay:1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.vie.alpha=0;
+    } completion:^(BOOL finished) {
+        self.zilab.alpha=1;
+    }];
+
+    
+    
+    
+    
     
     return cell;
     

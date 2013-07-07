@@ -22,4 +22,6 @@
 
 @property (retain,nonatomic) UIImageView *rightImageView;
 
+@property (retain,nonatomic) UILabel *zilab;
+@property (retain,nonatomic) UIView *vie;
 @end

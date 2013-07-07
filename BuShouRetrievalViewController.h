@@ -19,4 +19,6 @@
 @property (retain,nonatomic) NSArray *bihuaArray;
 @property (retain,nonatomic) NSString *buShouURL;
 
+@property (retain,nonatomic) UILabel *zilab;
+@property (retain,nonatomic) UIView *vie;
 @end

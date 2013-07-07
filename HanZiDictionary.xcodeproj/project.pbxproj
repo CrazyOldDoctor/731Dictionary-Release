@@ -179,6 +179,9 @@
 		0FD4A8F6177C31120007E8F6 /* MyCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4A8F5177C31120007E8F6 /* MyCollectCell.m */; };
 		0FD4A8FA177C42B10007E8F6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4A8F9177C42B10007E8F6 /* RegexKitLite.m */; };
 		0FD4A8FC177C42CE0007E8F6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD4A8FB177C42CE0007E8F6 /* libicucore.dylib */; };
+		0FEE758C17896BD800A8DDF9 /* round.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEE758B17896BD800A8DDF9 /* round.png */; };
+		0FEE7591178971E700A8DDF9 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEE7590178971E700A8DDF9 /* libUMFeedback.a */; };
+		0FEE759717897AEA00A8DDF9 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0FEE759617897AEA00A8DDF9 /* umFeedback.bundle */; };
 		0FFE769F1777F8C1007EB0BB /* AboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFE769E1777F8C1007EB0BB /* AboutUSViewController.m */; };
 		0FFE76A317783275007EB0BB /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFE76A217783275007EB0BB /* MoreViewController.m */; };
 		0FFE76A717785148007EB0BB /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFE76A617785148007EB0BB /* MyCollectViewController.m */; };
@@ -407,6 +410,10 @@
 		0FD4A8F8177C42B10007E8F6 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		0FD4A8F9177C42B10007E8F6 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		0FD4A8FB177C42CE0007E8F6 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		0FEE758B17896BD800A8DDF9 /* round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round.png; sourceTree = "<group>"; };
+		0FEE758F1789701100A8DDF9 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
+		0FEE7590178971E700A8DDF9 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		0FEE759617897AEA00A8DDF9 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		0FFE769D1777F8C1007EB0BB /* AboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUSViewController.h; sourceTree = "<group>"; };
 		0FFE769E1777F8C1007EB0BB /* AboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUSViewController.m; sourceTree = "<group>"; };
 		0FFE76A117783275007EB0BB /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
@@ -485,6 +492,7 @@
 				0FA20F9D1780331A00DD39E7 /* ShareSDKiPhoneAppRecommendShareViewUI.framework in Frameworks */,
 				0FA20F9F1780331A00DD39E7 /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */,
 				0FA20FA11780331A00DD39E7 /* ShareSDKiPhoneSimpleShareViewUI.framework in Frameworks */,
+				0FEE7591178971E700A8DDF9 /* libUMFeedback.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +580,7 @@
 		0F70600117746A2400AC0595 /* 汉字素材 */ = {
 			isa = PBXGroup;
 			children = (
+				0FEE758B17896BD800A8DDF9 /* round.png */,
 				0FFE76E3177AA3F4007EB0BB /* icon.png */,
 				0F7C66511775D0B400B7F100 /* 左边.png */,
 				0F7C66551776D2FB00B7F100 /* pyjz_normal01.png */,
@@ -888,6 +897,9 @@
 		0FFE76BE1779AFE1007EB0BB /* YiJianFanKui */ = {
 			isa = PBXGroup;
 			children = (
+				0FEE759617897AEA00A8DDF9 /* umFeedback.bundle */,
+				0FEE758F1789701100A8DDF9 /* UMFeedback.h */,
+				0FEE7590178971E700A8DDF9 /* libUMFeedback.a */,
 				0FFE76BF1779B030007EB0BB /* YiJianViewController.h */,
 				0FFE76C01779B030007EB0BB /* YiJianViewController.m */,
 			);
@@ -1088,6 +1100,8 @@
 				0FA20F9E1780331A00DD39E7 /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
 				0FA20FA01780331A00DD39E7 /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				0F86C38D17826313003220FD /* bs1.png in Resources */,
+				0FEE758C17896BD800A8DDF9 /* round.png in Resources */,
+				0FEE759717897AEA00A8DDF9 /* umFeedback.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1241,6 +1255,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/ShareSDK_v2.2.4/Extend/SDKExport\"",
 					"\"$(SRCROOT)/ShareSDK_v2.2.4/Extend/TencentWeiboSSO\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1265,6 +1280,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/ShareSDK_v2.2.4/Extend/SDKExport\"",
 					"\"$(SRCROOT)/ShareSDK_v2.2.4/Extend/TencentWeiboSSO\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
